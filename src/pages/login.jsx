@@ -12,10 +12,10 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const { setUser } = useContext(AuthContext);
 
-    const submitFormWithEnter = (event) => {
-        if (event.key === 'Enter');
-        form.submit();
-    }
+    // const submitFormWithEnter = (event) => {
+    //     if (event.key === 'Enter');
+    //     form.submit();
+    // }
 
     const onFinish = async (values) => {
         console.log('check values >>>', values);
@@ -80,7 +80,7 @@ const LoginPage = () => {
                             name="password"
                             rules={[{ required: true, message: 'Please input your password!' }]}
                         >
-                            <Input.Password onKeyDown={(event) => submitFormWithEnter(event.key)} />
+                            <Input.Password onPressEnter={() => form.submit()} />
                         </Form.Item>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <Button
